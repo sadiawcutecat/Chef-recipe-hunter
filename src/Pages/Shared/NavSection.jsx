@@ -2,6 +2,7 @@
 
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FaUserCircle } from 'react-icons/fa';
 
 
 
@@ -23,7 +24,7 @@ const NavSection = () => {
 
             </Nav>
             <Nav className="ms-auto">
-              <Nav.Link href="#link" >profile</Nav.Link>
+              <div className="h-100 w-100"><FaUserCircle /></div>
               <Link><Button variant="outline-success" className="ms-auto">Login</Button></Link></Nav>
           </Navbar.Collapse>
         </Container>
