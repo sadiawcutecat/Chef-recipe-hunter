@@ -12,12 +12,12 @@ const NavSection = () => {
     <div>
       <Navbar bg="success" className="bg-opacity-25" expand="lg">
         <Container >
-          <h2 className="me-5">Dish Dazzle</h2>
+          <h2 className="me-5 text-success">Dish Dazzle</h2>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <Link to="/" className="text-decoration-none"><Nav.Link >Home</Nav.Link></Link>
-             <Link to="/blog" className="text-decoration-none"><Nav.Link>Blog</Nav.Link></Link>
+            <Nav className="ms-auto gap-4">
+              <Link to="/" className="text-decoration-none text-dark">Home</Link>
+             <Link to="/blog" className="text-decoration-none text-dark">Blog</Link>
 
 
 
