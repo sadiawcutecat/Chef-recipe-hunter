@@ -1,13 +1,6 @@
 // import React from 'react';
-
-
 import { Carousel } from "react-bootstrap";
 import NavSection from "../NavSection";
-
-
-
-
-
 
 const Header = () => {
     return (
@@ -24,7 +17,7 @@ const Header = () => {
         />
         <Carousel.Caption>
           <h3>Ree Drummond with meal </h3>
-          <p>Here, you'll find recipes for steak, pork, salmon, and chicken, not to mention some outside-the-box pasta recipes and other imaginative ideas to ensure you'll never be stuck in a cooking rut again.</p>
+          <p>Here, you wll find recipes for steak, pork, salmon, and chicken, not to mention some outside-the-box pasta recipes and other imaginative ideas to ensure you wll never be stuck in a cooking rut again.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
