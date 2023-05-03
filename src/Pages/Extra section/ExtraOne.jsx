@@ -1,6 +1,6 @@
 // import React from 'react';
 // import Marquee from "react-fast-marquee";
-// import './ExtraOne.css'
+import './ExtraOne.css'
 
 
 const ExtraOne = () => {
