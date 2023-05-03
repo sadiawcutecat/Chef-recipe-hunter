@@ -24,8 +24,8 @@ const NavSection = () => {
 
             </Nav>
             <Nav className="ms-auto">
-              <div className="h-100 w-100"><FaUserCircle /></div>
-              <Link><Button variant="outline-success" className="ms-auto">Login</Button></Link></Nav>
+              <FaUserCircle style={{ fontSize: '2rem' }}/>
+              <Link><Button variant="outline-success" className="ms-3">Login</Button></Link></Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
