@@ -1,6 +1,7 @@
 // import React from 'react';
 import { Carousel } from "react-bootstrap";
 import NavSection from "../NavSection";
+import './Header.css'
 
 const Header = () => {
     return (
@@ -11,7 +12,7 @@ const Header = () => {
 <Carousel>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 banner"
           src="/src/assets/images/banner-2.jpeg"
           alt="First slide"
         />
@@ -22,7 +23,7 @@ const Header = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-inline w-100"
+          className="d-inline w-100 banner"
           src="/src/assets/images/banner-3.jpg"
           alt="Second slide"
         />
@@ -34,7 +35,7 @@ const Header = () => {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100 "
+          className="d-block w-100 banner"
           src="/src/assets/images/banner-4.jpg"
           alt="Third slide"
         />
