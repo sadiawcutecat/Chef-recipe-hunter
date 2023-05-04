@@ -1,10 +1,13 @@
 // import React from 'react';
 
 import { Accordion } from "react-bootstrap";
+import NavSection from "../Shared/NavSection";
+import Footer from "../Shared/Footer/Footer";
 
 const Blog = () => {
     return (
         <div>
+          <NavSection></NavSection>
             <Accordion defaultActiveKey="0" flush>
       <Accordion.Item eventKey="0">
         <Accordion.Header className="fw-bold text-success">1. Tell us the differences between uncontrolled and controlled components.</Accordion.Header>
@@ -46,6 +49,7 @@ const Blog = () => {
       </Accordion.Item>
     </Accordion>
 
+<Footer></Footer>
         </div>
     );
 };

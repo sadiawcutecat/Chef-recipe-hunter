@@ -3,7 +3,9 @@ import { Carousel } from "react-bootstrap";
 import NavSection from "../NavSection";
 import './Header.css'
 
+
 const Header = () => {
+
     return (
        <div>
         <NavSection></NavSection>

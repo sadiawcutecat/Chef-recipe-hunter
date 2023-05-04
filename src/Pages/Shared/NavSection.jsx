@@ -3,10 +3,14 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from 'react-icons/fa';
+import { useContext } from "react";
+import AuthProvider from "../../Provider/AuthProvider";
+
 
 
 
 const NavSection = () => {
+  const user = useContext(AuthProvider);
   return (
 
     <div>
@@ -23,9 +27,18 @@ const NavSection = () => {
 
 
             </Nav>
-            <Nav className="ms-auto">
+          
+          <Nav className="ms-auto"><span>{user?.displayName}</span>
               <FaUserCircle style={{ fontSize: '2rem' }}/>
-              <Link><Button variant="outline-success" className="ms-3">Login</Button></Link></Nav>
+              </Nav>
+            
+              
+                 <Nav>
+                  <Link to="/login"><Button variant="outline-success" className="ms-3">Login</Button></Link>
+                {/* <Link to="/login"><Button variant="outline-success" className="ms-3">LogOut</Button></Link> */}
+                </Nav>
+              
+             
           </Navbar.Collapse>
         </Container>
       </Navbar>

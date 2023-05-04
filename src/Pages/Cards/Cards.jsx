@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { AiFillLike } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Cards = () => {
     // eslint-disable-next-line no-unused-vars
@@ -25,21 +26,22 @@ const Cards = () => {
                 {chefData.map(chefInfo => (
                     <p key={chefInfo.id}>
                         <div>
-                            <Row xs={1} md={3} className="g-4">
-
-                                <Col>
+                            <Row xs={3} md={2} className="g-4">
+                               <Col>
                                     <Card>
                                         <Card.Img variant="top" src={chefInfo.chef_url} />
                                         <Card.Body>
                                             <Card.Title>{chefInfo.name}</Card.Title>
                                             <Card.Text>
-                                                <p>Experience:  {chefInfo.years_of_experience} Years</p>
+                                               <div className="d-flex justify-content-between">
+                                               <p>Experience:  {chefInfo.years_of_experience} Years</p>
                                                 <p>Number of Recipe: {chefInfo.num_recipes}</p>
-                                                <div>
+                                               </div>
+                                                <div className="d-flex justify-content-between">
                                                 <p><AiFillLike style={{ fontSize: '2rem', color: 'blue' }} />{chefInfo.likes}</p>
-                                                <Button className="fw-bold" variant="success" size="lg">
+                                               <Link to={`/chefData/${chefInfo.id}`}> <Button className="fw-bold" variant="success" >
                                                 View Recipes Button
-                                                </Button>
+                                                </Button></Link>
                                                 </div>
                                             </Card.Text>
 
