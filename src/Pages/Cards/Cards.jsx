@@ -5,6 +5,8 @@ import { Button, Card, Col, Row } from "react-bootstrap";
 import { AiFillLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
+
+
 const Cards = () => {
     // eslint-disable-next-line no-unused-vars
     const [chefData, setChefData] = useState([]);
@@ -18,7 +20,6 @@ const Cards = () => {
             })
             .catch(error => console.log(error))
     }, [])
-
 
     return (
         <div>
@@ -41,7 +42,8 @@ const Cards = () => {
                                                 <p><AiFillLike style={{ fontSize: '2rem', color: 'blue' }} />{chefInfo.likes}</p>
                                                <Link to={`/chefData/${chefInfo.id}`}> <Button className="fw-bold" variant="success" >
                                                 View Recipes Button
-                                                </Button></Link>
+                                                </Button>
+                                                </Link>
                                                 </div>
                                             </Card.Text>
 

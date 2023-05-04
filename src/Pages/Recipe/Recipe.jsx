@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { AiFillLike } from "react-icons/ai";
 import {
-    Link,
+  
     useParams,
 
 } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Recipe = () => {
@@ -30,6 +32,8 @@ const Recipe = () => {
     console.log(chef);
     if (!chef) return <p>Data not found for ID {id}</p>;
 
+    const notify = () => toast("Wow so easy!");
+
     return (
         <div>
             <img src={chef[0].chef_url} alt="" />
@@ -42,22 +46,29 @@ const Recipe = () => {
 
                         <Col>
                             <Card>
-                          
+
                                 <Card.Body>
-                                  
+
                                     <Card.Text>
                                         <p>Recipe name:{item.name}</p>
                                         <h5>Ingredients:</h5>
                                         <p><ul>{item.ingredients}</ul></p>
                                         <h5>Recipe Method:</h5>
                                         <p>{item.method}</p>
-                                        <Link> <Button className="fw-bold" variant="success" >
-                                            Favorite
-                                        </Button></Link>
+                                        <div>
+                                            <Button onClick={notify} className="fw-bold" variant="success" >
+                                                Favorite
+                                            </Button>
+
+                                        </div>
+
+
 
                                     </Card.Text>
+
                                 </Card.Body>
                             </Card>
+
                         </Col>
 
                     </Row>
@@ -72,7 +83,18 @@ const Recipe = () => {
             </div>
             <p><AiFillLike style={{ fontSize: '2rem', color: 'blue' }} />{chef[0].likes}</p>
 
-
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };

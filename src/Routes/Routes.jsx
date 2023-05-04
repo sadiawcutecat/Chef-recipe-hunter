@@ -5,10 +5,13 @@ import Blog from "../Pages/Blog/Blog";
 import Recipe from "../Pages/Recipe/Recipe";
 
 import Login from "../Pages/Login/Login";
+// import { useContext } from "react";
+// import AuthProvider from "../Provider/AuthProvider";
 
-
+// const {user} = useContext(AuthProvider);
 
 const router = createBrowserRouter([
+
 
     {
         path:'/',
