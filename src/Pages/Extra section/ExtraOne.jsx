@@ -10,28 +10,28 @@ const ExtraOne = () => {
             <Marquee speed={50} pauseOnClick ={true} >
                 <div className='d-flex justify-content-evenly mt-5'>
                     <div >
-                        <img className='images' src="/src/assets/images/appetizer.jpg" alt="" />
+                        <img className='images' src="/public/images/appetizer.jpg" alt="" />
                         <p className='text-center'>Appetizer</p>
                     </div>
                     <div>
-                        <img className='images' src="/src/assets/images/brunch.jpg" alt="" />
+                        <img className='images' src="/public/images/brunch.jpg" alt="" />
                         <p className='text-center'>Brunch</p>
                     </div>
                     <div>
-                        <img className='images' src="/src/assets/images/desserts.jpg" alt=""  />
+                        <img className='images' src="/public/images/desserts.jpg" alt=""  />
                         <p className='text-center'>Desserts</p>
 
                     </div>
                     <div>
-                        <img className='images' src="/src/assets/images/dinner.jpg" alt=""  />
+                        <img className='images' src="/public/images/dinner.jpg" alt=""  />
                         <p className='text-center'>Dinner</p>
                     </div>
                     <div>
-                        <img className='images' src="/src/assets/images/Salad.jpg" alt=""  />
+                        <img className='images' src="/public/images/Salad.jpg" alt=""  />
                         <p className='text-center'>Salad</p>
                     </div>
                     <div>
-                        <img className='images' src="/src/assets/images/drinks.jpg" alt="" />
+                        <img className='images' src="/public/images/drinks.jpg" alt="" />
                         <p className='text-center'>Drinks</p>
                     </div>
                 </div>

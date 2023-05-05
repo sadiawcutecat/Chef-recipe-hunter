@@ -5,6 +5,7 @@ import { Button, Card, Col, Row } from "react-bootstrap";
 import { AiFillLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import './Cards.css'
+import LazyLoad from "react-lazyload";
 
 
 
@@ -31,7 +32,11 @@ const Cards = () => {
                             <Row xs={1} md={2} lg={3} className="g-4 mt-4">
                                <Col>
                                     <Card >
-                                        <Card.Img variant="top" src={chefInfo.chef_url} className="image" />
+                                        <LazyLoad>
+                                             <Card.Img variant="top" src={chefInfo.chef_url} className="image" />
+                                        </LazyLoad>
+
+                                       
                                         <Card.Body>
                                             <Card.Title>{chefInfo.name}</Card.Title>
                                             <Card.Text>

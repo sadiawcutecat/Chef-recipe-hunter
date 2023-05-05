@@ -2,6 +2,7 @@
 import { Carousel } from "react-bootstrap";
 import NavSection from "../NavSection";
 import './Header.css'
+import LazyLoad from "react-lazyload";
 
 
 const Header = () => {
@@ -13,11 +14,14 @@ const Header = () => {
 
 <Carousel>
       <Carousel.Item>
+        <LazyLoad>
         <img
           className="d-block w-100 banner"
-          src="/src/assets/images/banner-2.jpeg"
+          src="/public/images/banner-2.jpeg"
           alt="First slide"
         />
+        </LazyLoad>
+     
         <Carousel.Caption>
           <h3>Ree Drummond with meal </h3>
           <p>Here, you wll find recipes for steak, pork, salmon, and chicken, not to mention some outside-the-box pasta recipes and other imaginative ideas to ensure you wll never be stuck in a cooking rut again.</p>
@@ -26,7 +30,7 @@ const Header = () => {
       <Carousel.Item>
         <img
           className="d-inline w-100 banner"
-          src="/src/assets/images/banner-3.jpg"
+          src="/public/images/banner-3.jpg"
           alt="Second slide"
         />
 
@@ -38,7 +42,7 @@ const Header = () => {
       <Carousel.Item>
         <img
           className="d-block w-100 banner"
-          src="/src/assets/images/banner-4.jpg"
+          src="/public/images/banner-4.jpg"
           alt="Third slide"
         />
 

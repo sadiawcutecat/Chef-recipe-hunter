@@ -66,13 +66,29 @@ const Recipe = () => {
                     <div><Spinner></Spinner></div>
                 ) : (
                     <div>
-                        <img src={chef[0].chef_url} alt="" />
-                        <h1>{chef[0].name}</h1>
+                        <div className="d-flex p-5">
+                            <div className="ms-5">
+                                <img src={chef[0].chef_url} alt="" className="h-100 w-50"/>
+
+                            </div>
+                            <div className="">
+                                <h1>{chef[0].name}</h1>
+
+                                <h3>Description:</h3>
+                                <p>{chef[0].description}</p>
+
+                                <h5>Experience: {chef[0].years_of_experience} Years</h5>
+                                <h5>Number of Recipe: {chef[0].num_recipes}</h5>
+                                <p><AiFillLike style={{ fontSize: '2rem', color: 'blue' }} />{chef[0].likes}</p>
+                            </div>
+                        </div>
+
+                       
                         {chef[0].recipes.map((item, index) => (
 
 
                             <div key={index}>
-                                <Row md={2} className="g-4">
+                                <Row className="g-4">
 
                                     <Col>
                                         <Card>
@@ -80,7 +96,7 @@ const Recipe = () => {
                                             <Card.Body>
 
                                                 <Card.Text>
-                                                    <p>Recipe name:{item.name}</p>
+                                                    <h3>Recipe name:{item.name}</h3>
                                                     <h5>Ingredients:</h5>
                                                     <p><ul>{item.ingredients}</ul></p>
                                                     <h5>Recipe Method:</h5>
@@ -121,15 +137,7 @@ const Recipe = () => {
                                 </Row>
                             </div>
                         ))}
-                        <div >
 
-                            <div className="">
-                                <h5>Experience: {chef[0].years_of_experience} Years</h5>
-                                <h5>Number of Recipe: {chef[0].num_recipes}</h5>
-
-                            </div>
-                        </div>
-                        <p><AiFillLike style={{ fontSize: '2rem', color: 'blue' }} />{chef[0].likes}</p>
 
                         <ToastContainer
                             position="top-right"
