@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import auth from '../../firebase/firebase.config';
+import Footer from '../Shared/Footer/Footer';
 
 const Login = () => {
     const [user, setUser] = useState(null);
@@ -64,6 +65,7 @@ const handleSubmit = (event) =>{
 
                 <p className=''><small>If you do not have an account? please <Link className='text-primary text-bold' to="/signUp"> SignUp</Link></small></p>
             </div>
+            <Footer></Footer>
 
 
 
