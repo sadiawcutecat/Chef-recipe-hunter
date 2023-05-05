@@ -5,6 +5,7 @@ import Blog from "../Pages/Blog/Blog";
 import Recipe from "../Pages/Recipe/Recipe";
 
 import Login from "../Pages/Login/Login";
+import Error from "../Pages/Error/Error";
 // import { useContext } from "react";
 // import AuthProvider from "../Provider/AuthProvider";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
                 path:'/chefData/:id',
                 element:<Recipe></Recipe>,
                 // loader:({params}) => fetch(`http://localhost:5000/chefData/${params.id}`)
+            },
+            {
+                path:'*',
+                element:<Error></Error>
             }
         ]
     }
