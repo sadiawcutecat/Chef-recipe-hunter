@@ -6,6 +6,7 @@ import Recipe from "../Pages/Recipe/Recipe";
 
 import Login from "../Pages/Login/Login";
 import Error from "../Pages/Error/Error";
+import SignUp from "../Pages/Login/SignUp";
 // import { useContext } from "react";
 // import AuthProvider from "../Provider/AuthProvider";
 
@@ -28,13 +29,17 @@ const router = createBrowserRouter([
                 element:<Login></Login>
             },
             {
+                path:'/signUp',
+                element:<SignUp></SignUp>
+            },
+            {
                 path:'/blog',
                 element:<Blog></Blog>
             },
             {
                 path:'/chefData/:id',
                 element:<Recipe></Recipe>,
-                loader:({params}) => fetch(`http://localhost:5000/chefData/${params.id}`)
+                loader:({params}) => fetch(`https://chef-recipe-hunter-serve.vercel.app/chefData/${params.id}`)
             }
             // {
             //     path:'*',

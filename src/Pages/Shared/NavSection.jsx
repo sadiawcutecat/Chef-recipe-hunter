@@ -4,6 +4,10 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { FaUserCircle } from 'react-icons/fa';
 import './NavSection.css'
+import { signOut } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
+import { AuthContext } from "../../Contexts/AuthProvider";
+import { useContext, useState } from "react";
 // import { useAuthState } from 'react-firebase-hooks/auth';
 // import auth from '../../firebase.init';
 // import { useContext } from "react";
@@ -18,6 +22,30 @@ const NavSection = () => {
   // console.log(user);
   // const {displayName}= user;
   // console.log(displayName);
+
+  const {user, setUser} = useState(null);
+  const huser = useContext(AuthContext);
+  // const [duser] = useAuthState(auth);
+  console.log(huser);
+  // const user = useContext(AuthProvider);
+  // const [user] = useAuthState(auth);
+  // console.log(user);
+  // const {displayName}= user;
+  // console.log(displayName);
+  // const user = getAuth(app)
+  // const [data] = useAuthState(auth);
+
+console.log(user);
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(result => {
+        setUser(null);
+        console.log(result)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
   return (
 
     <div>
@@ -43,7 +71,15 @@ const NavSection = () => {
 
 
             <Nav>
-              <Link to="/login"><Button variant="outline-success" className="ms-3">sign In</Button></Link>
+            {
+              user? 
+              <Button onClick={handleSignOut} variant="outline-success" className="ms-3">sign out</Button>
+              :
+              <Link to="/login"><Button variant="outline-success" className="ms-3">sign In</Button></Link> 
+
+
+            
+            }
               {/* <Link to="/login"><Button variant="outline-success" className="ms-3">LogOut</Button></Link> */}
             </Nav>
 

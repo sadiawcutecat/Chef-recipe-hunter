@@ -17,7 +17,7 @@ const Header = () => {
         <LazyLoad>
         <img
           className="d-block w-100 banner"
-          src="/public/images/banner-2.jpeg"
+          src="./images/banner-2.jpeg"
           alt="First slide"
         />
         </LazyLoad>
@@ -30,7 +30,7 @@ const Header = () => {
       <Carousel.Item>
         <img
           className="d-inline w-100 banner"
-          src="/public/images/banner-3.jpg"
+          src="./images/banner-3.jpg"
           alt="Second slide"
         />
 
@@ -42,7 +42,7 @@ const Header = () => {
       <Carousel.Item>
         <img
           className="d-block w-100 banner"
-          src="/public/images/banner-4.jpg"
+          src="./images/banner-4.jpg"
           alt="Third slide"
         />
 
