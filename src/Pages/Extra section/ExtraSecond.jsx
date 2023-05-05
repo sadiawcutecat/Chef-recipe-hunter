@@ -12,7 +12,7 @@ const ExtraSecond = () => {
                 </Button>
             </div>
             <div className='p=4'>
-                <img className='h=50 w-100  ' src="/src/assets/images/about-photos.jpg" alt="" />
+                <img className='h=50 w-100  ' src="./images/about-photos.jpg" alt="" />
             </div>
         </div>
     );
