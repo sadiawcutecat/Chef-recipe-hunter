@@ -5,6 +5,8 @@ import NavSection from "../Shared/NavSection";
 import Footer from "../Shared/Footer/Footer";
 
 const Blog = () => {
+
+  // console.log(import.meta.env.VITE_PASS);
     return (
         <div>
           <NavSection></NavSection>
@@ -13,6 +15,7 @@ const Blog = () => {
         <Accordion.Header className="fw-bold text-success">1. Tell us the differences between uncontrolled and controlled components.</Accordion.Header>
         <Accordion.Body className="text-bg-danger bg-opacity-10 text-black"> 
          <p>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally. They use a ref to access the DOM elements current value and update the state accordingly.</p>
+         
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
