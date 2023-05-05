@@ -1,19 +1,39 @@
 // import React from 'react';
 import { useEffect, useState } from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row, Spinner } from "react-bootstrap";
 import { AiFillLike } from "react-icons/ai";
+import { FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 import {
-  
+
     useParams,
 
 } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import { Rating } from '@smastrom/react-rating'
+// import '@smastrom/react-rating/style.css'
+
 
 
 const Recipe = () => {
     const [chefData, setChefData] = useState(null);
     const { id } = useParams();
+    const [disabledButtons, setDisabledButtons] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        // Simulate loading data from an API
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, []);
+
+    function handleFavoriteClick(index) {
+        // setIsFavoriteClicked(true);
+        const newDisabledButtons = [...disabledButtons, index];
+        setDisabledButtons(newDisabledButtons);
+    }
 
 
 
@@ -32,69 +52,97 @@ const Recipe = () => {
     console.log(chef);
     if (!chef) return <p>Data not found for ID {id}</p>;
 
-    const notify = () => toast("Wow so easy!");
+    const notify = () => toast("The recipe is my favorite!");
 
     return (
         <div>
-            <img src={chef[0].chef_url} alt="" />
-            <h1>{chef[0].name}</h1>
-            {chef[0].recipes.map(item => (
+
+            {isLoading ? (
+                <div><Spinner></Spinner></div>
+            ) : (
+                <div>
+                    <img src={chef[0].chef_url} alt="" />
+                    <h1>{chef[0].name}</h1>
+                    {chef[0].recipes.map((item, index) => (
 
 
-                <div key={item.id}>
-                    <Row md={2} className="g-4">
+                        <div key={index}>
+                            <Row md={2} className="g-4">
 
-                        <Col>
-                            <Card>
+                                <Col>
+                                    <Card>
 
-                                <Card.Body>
+                                        <Card.Body>
 
-                                    <Card.Text>
-                                        <p>Recipe name:{item.name}</p>
-                                        <h5>Ingredients:</h5>
-                                        <p><ul>{item.ingredients}</ul></p>
-                                        <h5>Recipe Method:</h5>
-                                        <p>{item.method}</p>
-                                        <div>
-                                            <Button onClick={notify} className="fw-bold" variant="success" >
-                                                Favorite
-                                            </Button>
+                                            <Card.Text>
+                                                <p>Recipe name:{item.name}</p>
+                                                <h5>Ingredients:</h5>
+                                                <p><ul>{item.ingredients}</ul></p>
+                                                <h5>Recipe Method:</h5>
+                                                <p>{item.method}</p>
+                                            </Card.Text>
 
-                                        </div>
+                                        </Card.Body>
+                                        <Card.Footer className=' d-flex justify-content-between '>
+                                            <div>
+                                                <Rating
+                                                    placeholderRating={item?.rating}
+                                                    readonly
+                                                    emptySymbol={<FaRegStar></FaRegStar>}
+                                                    placeholderSymbol={<FaStar className="text-warning"></FaStar>}
+                                                    fullSymbol={<FaStar></FaStar>}
+                                                />
+                                                <small className="ms-2">{item?.rating}</small>
+                                            </div>
+                                            <div>
+                                                <Button
+                                                    onClick={() => {
+                                                        notify();
+                                                        handleFavoriteClick(index);
+                                                    }}
+                                                    className="fw-bold" variant="success"
+                                                    // disabled={isFavoriteClicked}
+                                                    disabled={disabledButtons.includes(index)}
+                                                >
+                                                    Favorite
+                                                </Button>
 
+                                            </div>
+                                        </Card.Footer>
+                                    </Card>
 
+                                </Col>
 
-                                    </Card.Text>
+                            </Row>
+                        </div>
+                    ))}
+                    <div >
 
-                                </Card.Body>
-                            </Card>
+                        <div className="">
+                            <h5>Experience: {chef[0].years_of_experience} Years</h5>
+                            <h5>Number of Recipe: {chef[0].num_recipes}</h5>
 
-                        </Col>
+                        </div>
+                    </div>
+                    <p><AiFillLike style={{ fontSize: '2rem', color: 'blue' }} />{chef[0].likes}</p>
 
-                    </Row>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
+
                 </div>
-            ))}
-            <div >
-                <div className="d-flex">
-                    <h5>Experience: {chef[0].years_of_experience} Years</h5>
-                    <h5>Number of Recipe: {chef[0].num_recipes}</h5>
+            )}
 
-                </div>
-            </div>
-            <p><AiFillLike style={{ fontSize: '2rem', color: 'blue' }} />{chef[0].likes}</p>
 
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
         </div>
     );
 };

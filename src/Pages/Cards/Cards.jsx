@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { AiFillLike } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import './Cards.css'
 
 
 
@@ -27,10 +28,10 @@ const Cards = () => {
                 {chefData.map(chefInfo => (
                     <p key={chefInfo.id}>
                         <div>
-                            <Row xs={3} md={2} className="g-4">
+                            <Row xs={1} md={2} lg={3} className="g-4 mt-4">
                                <Col>
-                                    <Card>
-                                        <Card.Img variant="top" src={chefInfo.chef_url} />
+                                    <Card >
+                                        <Card.Img variant="top" src={chefInfo.chef_url} className="image" />
                                         <Card.Body>
                                             <Card.Title>{chefInfo.name}</Card.Title>
                                             <Card.Text>
